@@ -28,7 +28,7 @@ public class WxOpInRedisConfigStorage extends WxOpConfigStorage {
 
   private final static String AUTHORIZATION_INFO = "kylin_wechat_op_authorization_info_";
 
-  private final static String AUTH_CODE = "kylin_wechat_op_auth_code";
+  private final static String AUTH_CODE = "kylin_wechat_op_auth_code_";
 
 
   protected Jedis jedis;
