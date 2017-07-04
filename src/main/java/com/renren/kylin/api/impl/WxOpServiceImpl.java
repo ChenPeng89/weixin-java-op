@@ -145,8 +145,12 @@ public class WxOpServiceImpl implements WxOpService {
     }else if(inMessage.getInfoType().equals(WxOpXmlMessage.INFO_TYPE_AUTHORIZED) ||
       inMessage.getInfoType().equals(WxOpXmlMessage.INFO_TYPE_UNAUTHORIZED) ||
       inMessage.getInfoType().equals(WxOpXmlMessage.INFO_TYPE_UPDATEAUTHORIZED)){
-      out = handleAuthorizedEvent(inMessage , authorizedEventHandler);
-      this.handleAuthorizationCallback(inMessage.getAuthorizationCode() , inMessage.getAuthorizationCodeExpiredTime());
+        out = handleAuthorizedEvent(inMessage , authorizedEventHandler);
+        if(inMessage.getInfoType().equals(WxOpXmlMessage.INFO_TYPE_UNAUTHORIZED)){
+            this.handleUnauthorizationCallback(inMessage.getAuthorizerAppId());
+        }else{
+            this.handleAuthorizationCallback(inMessage.getAuthorizationCode() , inMessage.getAuthorizationCodeExpiredTime());
+        }
     }
     return out;
   }
@@ -246,7 +250,16 @@ public class WxOpServiceImpl implements WxOpService {
 
   }
 
-  /**
+    /**
+     * 处理取消授权回调
+     * @param authorizerAppId
+     */
+    @Override
+    public void handleUnauthorizationCallback(String authorizerAppId) {
+        // TODO 删除对应config
+    }
+
+    /**
    * 获取授权方的帐号基本信息
    * @param authorizerAppId
    * @return

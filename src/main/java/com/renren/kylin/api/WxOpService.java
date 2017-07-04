@@ -85,6 +85,12 @@ public interface WxOpService {
    */
   Authorization handleAuthorizationCallback(String auth_code, int expires_in );
 
+    /**
+     * 处理取消授权回调
+     * @param authorizerAppId
+     */
+  void handleUnauthorizationCallback(String authorizerAppId);
+
 
   /**
    * 获取授权方的帐号基本信息
