@@ -44,6 +44,7 @@ public class WxOpServiceImpl implements WxOpService {
   private WxOpUserService userService = new WxOpUserServiceImpl(this);
   private WxOpDataCubeService dataCubeService = new WxOpDataCubeServiceImpl(this);
   private WxOpMaterialService materialService = new WxOpMaterialServiceImpl(this);
+  private WxOpKefuService kefuService = new WxOpKefuServiceImpl(this);
   private CloseableHttpClient httpClient;
   private HttpHost httpProxy;
   private int retrySleepMillis = 1000;
@@ -487,7 +488,18 @@ public class WxOpServiceImpl implements WxOpService {
   public WxOpDataCubeService getDataCubeService() {
     return this.dataCubeService;
   }
-  /**
+
+    /**
+     * 返回客服相关接口方法的实现类对象，以方便调用其各个接口
+     *
+     * @return WxOpKefuService
+     */
+    @Override
+    public WxOpKefuService getKefuService() {
+        return this.kefuService;
+    }
+
+    /**
    * 返回素材相关接口方法的实现类对象，以方便调用其各个接口
    *
    * @return WxOpMaterialService

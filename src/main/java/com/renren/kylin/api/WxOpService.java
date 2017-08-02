@@ -258,4 +258,11 @@ public interface WxOpService {
    */
   WxOpDataCubeService getDataCubeService();
 
+    /**
+     * 返回客服相关接口方法的实现类对象，以方便调用其各个接口
+     *
+     * @return WxOpKefuService
+     */
+  WxOpKefuService getKefuService();
+
 }

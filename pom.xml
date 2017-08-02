@@ -35,5 +35,11 @@
       <artifactId>jedis</artifactId>
     </dependency>
 
+      <dependency>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.3</version>
+      </dependency>
+
   </dependencies>
 </project>

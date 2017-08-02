@@ -1,6 +1,9 @@
 package com.renren.kylin.bean.auth;
 
 
+import com.renren.kylin.bean.authorizer.FuncInfo;
+import me.chanjar.weixin.common.api.WxConsts;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -47,7 +50,7 @@ public class Authorization implements Serializable {
       微信支付权限
       自定义菜单权限
    */
-  private List funcInfo;
+  private List<FuncInfo> funcInfo;
 
 
   public boolean isAuthorizerAccessTokenExpired(){
